@@ -1,0 +1,59 @@
+colors:
+  primary:
+    dark: "#1a2847"      # DC blue-dark
+    DEFAULT: "#2b4075"   # DC blue
+    light: "#4a6199"     # DC blue-light
+  accent:
+    DEFAULT: "#c4a242"   # Gold
+    light: "#d4b862"     # Gold light
+  background:
+    DEFAULT: "#f5f0e8"   # Warm off-white
+    card: "#ffffff"
+    dark: "#1a1a1a"
+  text:
+    primary: "#1a1a1a"
+    secondary: "#4a4a4a"
+    muted: "#8a8a8a"
+    inverse: "#ffffff"
+  border:
+    DEFAULT: "#e0d8c8"
+    light: "#f0ebe0"
+  status:
+    error: "#c43030"
+    success: "#2a7d3f"
+
+typography:
+  fontFamily:
+    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    mono: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace"
+  fontSize:
+    xs: "0.75rem"    # 12px
+    sm: "0.875rem"   # 14px
+    base: "1rem"     # 16px
+    lg: "1.125rem"   # 18px
+    xl: "1.25rem"    # 20px
+    2xl: "1.5rem"    # 24px
+    3xl: "2rem"      # 32px
+
+spacing:
+  0: "0"
+  1: "0.25rem"   # 4px
+  2: "0.5rem"    # 8px
+  3: "0.75rem"   # 12px
+  4: "1rem"      # 16px
+  6: "1.5rem"    # 24px
+  8: "2rem"      # 32px
+  12: "3rem"     # 48px
+
+borderRadius:
+  sm: "0.25rem"    # 4px
+  DEFAULT: "0.5rem" # 8px
+  lg: "0.75rem"    # 12px
+  full: "9999px"
+
+cloudinary:
+  cloud: "dke4phurv"
+  thumbnail: "w_300,h_450,c_fill"
+  detail: "w_600,h_900,c_fill"
+  card: "w_200,h_300,c_fill"
+  hero: "w_800,h_400,c_fill"

@@ -1,0 +1,17 @@
+query GetSeriesWithCover($id: Int!) {
+  series(id: $id) {
+    id
+    name
+    yearBegan
+    yearEnded
+    issueCount
+    publisher {
+      id
+      name
+    }
+    issues(limit: 1) {
+      id
+      coverImageUrl
+    }
+  }
+}

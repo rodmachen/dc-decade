@@ -1,0 +1,62 @@
+sections:
+  - title: "Crisis on Infinite Earths"
+    subtitle: "The event that changed everything (1985-1986)"
+    seriesIds:
+      - 2973   # Crisis on Infinite Earths
+      - 97     # Action Comics
+      - 141    # Batman
+      - 87     # Detective Comics
+      - 116    # Superman
+      - 277    # Wonder Woman
+      - 1428   # The Flash
+      - 1448   # Green Lantern
+      - 2835   # Legion of Super-Heroes
+      - 2833   # Infinity, Inc.
+      - 2583   # All-Star Squadron
+
+  - title: "The Dark Knight Era"
+    subtitle: "Grim, gritty, and groundbreaking (1986-1989)"
+    seriesIds:
+      - 3141   # Batman: The Dark Knight Returns
+      - 3172   # Watchmen
+      - 14212  # Batman: Year One
+      - 3571   # Batman: The Killing Joke
+      - 3581   # Cosmic Odyssey
+      - 3627   # V for Vendetta
+      - 3361   # Green Arrow: The Longbow Hunters
+      - 3594   # Green Arrow
+
+  - title: "New Teen Titans"
+    subtitle: "Wolfman & Perez redefine a generation"
+    seriesIds:
+      - 2543   # The New Teen Titans (1980)
+      - 2842   # The New Teen Titans (1984)
+      - 2851   # Tales of the Teen Titans
+
+  - title: "Justice League International"
+    subtitle: "Giffen, DeMatteis & Maguire bring the laughs"
+    seriesIds:
+      - 3364   # Justice League
+      - 3366   # Justice League International
+      - 3143   # Booster Gold
+      - 3142   # Blue Beetle
+      - 3812   # Mister Miracle
+      - 3156   # Legends
+
+  - title: "Superman Reborn"
+    subtitle: "Byrne's Man of Steel and a new beginning"
+    seriesIds:
+      - 3160   # The Man of Steel
+      - 3386   # Superman (1987)
+      - 97     # Action Comics
+      - 3166   # Secret Origins
+
+  - title: "Vertigo Precursors"
+    subtitle: "The seeds of DC's mature readers line"
+    seriesIds:
+      - 2999   # Swamp Thing (1985)
+      - 3817   # Sandman
+      - 3599   # Hellblazer
+      - 3567   # Animal Man
+      - 3353   # Doom Patrol
+      - 3385   # Suicide Squad

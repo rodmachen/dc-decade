@@ -1,0 +1,11 @@
+{
+  "name": "@dc-decade/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tokens": "./design-tokens/tokens.ts",
+    "./homepage": "./content/homepage.json",
+    "./schema": "./schema.graphql"
+  }
+}

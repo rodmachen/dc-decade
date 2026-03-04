@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "title": "Crisis on Infinite Earths",
+      "subtitle": "The event that changed everything (1985-1986)",
+      "seriesIds": [
+        2973,
+        97,
+        141,
+        87,
+        116,
+        277,
+        1428,
+        1448,
+        2835,
+        2833,
+        2583
+      ]
+    },
+    {
+      "title": "The Dark Knight Era",
+      "subtitle": "Grim, gritty, and groundbreaking (1986-1989)",
+      "seriesIds": [
+        3141,
+        3172,
+        14212,
+        3571,
+        3581,
+        3627,
+        3361,
+        3594
+      ]
+    },
+    {
+      "title": "New Teen Titans",
+      "subtitle": "Wolfman & Perez redefine a generation",
+      "seriesIds": [
+        2543,
+        2842,
+        2851
+      ]
+    },
+    {
+      "title": "Justice League International",
+      "subtitle": "Giffen, DeMatteis & Maguire bring the laughs",
+      "seriesIds": [
+        3364,
+        3366,
+        3143,
+        3142,
+        3812,
+        3156
+      ]
+    },
+    {
+      "title": "Superman Reborn",
+      "subtitle": "Byrne's Man of Steel and a new beginning",
+      "seriesIds": [
+        3160,
+        3386,
+        97,
+        3166
+      ]
+    },
+    {
+      "title": "Vertigo Precursors",
+      "subtitle": "The seeds of DC's mature readers line",
+      "seriesIds": [
+        2999,
+        3817,
+        3599,
+        3567,
+        3353,
+        3385
+      ]
+    }
+  ]
+}
