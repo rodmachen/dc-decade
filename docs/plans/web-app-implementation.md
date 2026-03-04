@@ -102,35 +102,35 @@ When copying operations from the API repo, these changes are needed:
 
 ## Implementation Sequence
 
-### Phase 0: Foundation — Model: Opus
+### Phase 0: Foundation — Model: Opus ✅ Completed 2026-03-03
 
-| Step | What |
-|------|------|
-| 1 | Create `dc-decade` repo, root `package.json` with workspaces, `tsconfig.base.json`, `.gitignore`, `.nvmrc` |
-| 2 | Set up `shared/` workspace: copy + update schema and operations from API repo, place assets |
-| 3 | Write `tokens.yaml`, write + run `generate-tokens.ts` → produces `tokens.ts` |
-| 4 | Query production API for real series IDs, write `homepage.yaml`, write + run `compile-homepage.ts` → produces `homepage.json` |
-| 5 | Write `codegen-web.ts` config |
-| 6 | Scaffold `web/` with `create-next-app`, install deps, run codegen, commit to `main` |
+| Step | What | Status |
+|------|------|--------|
+| 1 | Create `dc-decade` repo, root `package.json` with workspaces, `tsconfig.base.json`, `.gitignore`, `.nvmrc` | ✅ |
+| 2 | Set up `shared/` workspace: copy + update schema and operations from API repo, place assets | ✅ |
+| 3 | Write `tokens.yaml`, write + run `generate-tokens.ts` → produces `tokens.ts` | ✅ |
+| 4 | Query production API for real series IDs, write `homepage.yaml`, write + run `compile-homepage.ts` → produces `homepage.json` | ✅ |
+| 5 | Write `codegen-web.ts` config | ✅ |
+| 6 | Scaffold `web/` with `create-next-app`, install deps, run codegen, commit to `main` | ✅ |
 
-### Phase 1: Web App — Model: Sonnet
+### Phase 1: Web App — Model: Sonnet ✅ Completed 2026-03-03
 
 All work on `feature/web-app` branch, files only in `web/`.
 
-| Step | What |
-|------|------|
-| 7 | Apollo Client setup (server + client), Cloudinary helper, Tailwind config with tokens |
-| 8 | Layout: root layout with ApolloWrapper, BottomNav (fixed bottom), CreditsFooter |
-| 9 | Homepage: HeroSection, HomepageSection (horizontal scroll), SeriesCard |
-| 10 | Search: SearchBar (debounced), SearchTabs, result components, client-side queries |
-| 11 | Detail pages: Series (header + issue grid), Issue (cover + metadata + stories), Creator (name + variants) |
-| 12 | Tests: Vitest + RTL + MSW — unit, component, integration tests |
+| Step | What | Status |
+|------|------|--------|
+| 7 | Apollo Client setup (server + client), Cloudinary helper, Tailwind config with tokens | ✅ |
+| 8 | Layout: root layout with ApolloWrapper, BottomNav (fixed bottom), CreditsFooter | ✅ |
+| 9 | Homepage: HeroSection, HomepageSection (horizontal scroll), SeriesCard | ✅ |
+| 10 | Search: SearchBar (debounced), SearchTabs, result components, client-side queries | ✅ |
+| 11 | Detail pages: Series (header + issue grid), Issue (cover + metadata + stories), Creator (name + variants) | ✅ |
+| 12 | Tests: Vitest + RTL + MSW — unit, component, integration tests (47 passing) | ✅ |
 
-### Phase 2: Integration — Model: Opus
+### Phase 2: Integration — Model: Opus ✅ Completed 2026-03-03
 
-| Step | What |
-|------|------|
-| 13 | Merge to `main`, full test suite, mobile viewport review, verify against production API, deploy to Vercel |
+| Step | What | Status |
+|------|------|--------|
+| 13 | Merge to `main`, full test suite, mobile viewport review, verify against production API, deploy to Vercel | ✅ |
 
 ---
 
@@ -190,13 +190,13 @@ Copyright @ 2026 Rod Machen | Comics data: GCD | Image data: Comic Vine
 
 ---
 
-## Verification
+## Verification ✅ All Passed 2026-03-03
 
-1. `npm test` passes all unit, component, and integration tests
-2. Homepage renders sections with real cover images from Cloudinary
-3. Search returns results for all three tabs (series, creators, issues)
-4. All detail pages render correctly with production API data
-5. Mobile viewport (375px) renders correctly: bottom nav, horizontal scroll, touch targets
-6. Cloudinary transforms produce correctly sized images
-7. Placeholder image displays when `coverImageUrl` is null
-8. Deploy to Vercel succeeds and serves at production URL
+1. ✅ `npm test` passes all 47 unit, component, and integration tests
+2. ✅ Homepage renders 6 sections with real cover images from Cloudinary (37 series verified)
+3. ✅ Search returns results for all three tabs (series, creators, issues)
+4. ✅ All detail pages render correctly with production API data
+5. ✅ Mobile viewport audit passed: bottom nav, horizontal scroll, touch targets (44px), safe-area-inset
+6. ✅ Cloudinary transforms produce correctly sized images (card, thumbnail, detail, hero)
+7. ✅ Placeholder image displays when `coverImageUrl` is null
+8. ✅ Deployed to Vercel at www.dcdecade.com (dcdecade.com redirects to www)
