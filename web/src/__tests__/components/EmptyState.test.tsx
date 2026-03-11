@@ -12,4 +12,20 @@ describe("EmptyState", () => {
     render(<EmptyState message="No results found." />);
     expect(screen.getByText("No results found.")).toBeInTheDocument();
   });
+
+  it("renders branded variant with logo", () => {
+    render(<EmptyState branded message="Search DC Decade" />);
+    expect(screen.getByText("Search DC Decade")).toBeInTheDocument();
+    expect(screen.getByRole("img")).toBeInTheDocument();
+  });
+
+  it("renders suggestion text in branded variant", () => {
+    render(<EmptyState branded message="Search DC Decade" suggestion="Try 'Batman'" />);
+    expect(screen.getByText("Try 'Batman'")).toBeInTheDocument();
+  });
+
+  it("does not render logo in default variant", () => {
+    render(<EmptyState message="No results." />);
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  });
 });

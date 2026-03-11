@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/c
 import { useMemo } from "react";
 
 const API_URL =
+  process.env.NEXT_PUBLIC_GRAPHQL_URL ||
   "https://comics-n-stuff-gql-production.up.railway.app/graphql";
 
 function makeClient() {

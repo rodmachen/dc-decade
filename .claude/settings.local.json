@@ -3,7 +3,9 @@
     "allow": [
       "Bash",
       "Write",
-      "Edit"
+      "Edit",
+      "WebFetch(domain:dcdecade.com)",
+      "WebFetch(domain:www.dcdecade.com)"
     ]
   }
 }

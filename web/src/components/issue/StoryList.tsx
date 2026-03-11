@@ -1,11 +1,18 @@
 import { StoryCard } from "./StoryCard";
 
+interface Credit {
+  id: number;
+  creditType: { name: string };
+  creatorNameDetail: { name: string };
+}
+
 interface Story {
   id: number;
   title: string;
   feature: string;
   sequenceNumber: number;
   type: { name: string };
+  credits?: Credit[];
 }
 
 interface StoryListProps {
@@ -16,7 +23,7 @@ export function StoryList({ stories }: StoryListProps) {
   if (stories.length === 0) return null;
 
   return (
-    <div className="mt-4">
+    <section className="mt-4">
       <h2 className="text-base font-bold text-text-primary px-4 mb-2">Stories</h2>
       {stories.map((story) => (
         <StoryCard
@@ -25,8 +32,9 @@ export function StoryList({ stories }: StoryListProps) {
           feature={story.feature}
           typeName={story.type.name}
           sequenceNumber={story.sequenceNumber}
+          credits={story.credits}
         />
       ))}
-    </div>
+    </section>
   );
 }

@@ -373,7 +373,7 @@ export type GetIssueQueryVariables = Exact<{
 }>;
 
 
-export type GetIssueQuery = { __typename?: 'Query', issue?: { __typename?: 'Issue', id: number, number: string, volume: string, title: string, publicationDate: string, keyDate: string, price: string, pageCount?: number | null, isbn: string, barcode: string, onSaleDate: string, rating: string, variantName: string, editing: string, notes: string, sortCode: number, coverImageUrl?: string | null, series: { __typename?: 'Series', id: number, name: string, publisher: { __typename?: 'Publisher', id: number, name: string } }, variantOf?: { __typename?: 'Issue', id: number, number: string } | null, stories: Array<{ __typename?: 'Story', id: number, title: string, feature: string, sequenceNumber: number, type: { __typename?: 'StoryType', name: string } }> } | null };
+export type GetIssueQuery = { __typename?: 'Query', issue?: { __typename?: 'Issue', id: number, number: string, volume: string, title: string, publicationDate: string, keyDate: string, price: string, pageCount?: number | null, isbn: string, barcode: string, onSaleDate: string, rating: string, variantName: string, editing: string, notes: string, sortCode: number, coverImageUrl?: string | null, series: { __typename?: 'Series', id: number, name: string, publisher: { __typename?: 'Publisher', id: number, name: string } }, variantOf?: { __typename?: 'Issue', id: number, number: string } | null, stories: Array<{ __typename?: 'Story', id: number, title: string, feature: string, sequenceNumber: number, type: { __typename?: 'StoryType', name: string }, credits: Array<{ __typename?: 'StoryCredit', id: number, creditType: { __typename?: 'CreditType', name: string }, creatorNameDetail: { __typename?: 'CreatorNameDetail', name: string, creator: { __typename?: 'Creator', id: number, gcdOfficialName: string } } }> }> } | null };
 
 export type SearchIssuesQueryVariables = Exact<{
   search: Scalars['String']['input'];
@@ -808,6 +808,19 @@ export const GetIssueDocument = gql`
       sequenceNumber
       type {
         name
+      }
+      credits {
+        id
+        creditType {
+          name
+        }
+        creatorNameDetail {
+          name
+          creator {
+            id
+            gcdOfficialName
+          }
+        }
       }
     }
   }

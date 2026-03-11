@@ -15,6 +15,7 @@ const tabs = [
         stroke="currentColor"
         strokeWidth={active ? 0 : 1.5}
         className="w-6 h-6"
+        aria-hidden="true"
       >
         <path d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
       </svg>
@@ -31,6 +32,7 @@ const tabs = [
         stroke="currentColor"
         strokeWidth={active ? 0 : 1.5}
         className="w-6 h-6"
+        aria-hidden="true"
       >
         <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
@@ -42,8 +44,11 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-primary-dark border-t border-primary-light safe-area-bottom">
-      <div className="flex justify-around items-center h-14">
+    <nav
+      aria-label="Main navigation"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-primary-dark border-t border-primary-light safe-area-bottom"
+    >
+      <div className="flex justify-around items-center h-nav">
         {tabs.map((tab) => {
           const isActive =
             tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href);
@@ -51,6 +56,8 @@ export function BottomNav() {
             <Link
               key={tab.href}
               href={tab.href}
+              aria-label={tab.label}
+              aria-current={isActive ? "page" : undefined}
               className={`flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-4 ${
                 isActive ? "text-accent" : "text-text-inverse opacity-70"
               }`}

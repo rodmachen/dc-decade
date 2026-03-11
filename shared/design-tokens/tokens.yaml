@@ -1,8 +1,8 @@
 colors:
   primary:
-    dark: "#1a2847"      # DC blue-dark
-    DEFAULT: "#2b4075"   # DC blue
-    light: "#4a6199"     # DC blue-light
+    dark: "#2B5A9B"      # DC blue-dark (matches asset blue, WCAG AA 7:1 on white)
+    DEFAULT: "#3878C7"   # DC blue (matches banner/app-tile blue)
+    light: "#5A94D4"     # DC blue-light
   accent:
     DEFAULT: "#c4a242"   # Gold
     light: "#d4b862"     # Gold light

@@ -92,9 +92,9 @@ describe("Search Page Integration", () => {
     expect(screen.getByText("Issues")).toBeInTheDocument();
   });
 
-  it("shows prompt before typing", () => {
+  it("shows branded empty state before typing", () => {
     render(<SearchPage />, { wrapper: Wrapper });
-    expect(screen.getByText("Type at least 2 characters to search.")).toBeInTheDocument();
+    expect(screen.getByText("Search DC Decade")).toBeInTheDocument();
   });
 
   it("searches series and shows results", async () => {

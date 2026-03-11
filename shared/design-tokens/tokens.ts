@@ -2,9 +2,9 @@
 export const tokens = {
   "colors": {
     "primary": {
-      "dark": "#1a2847",
-      "DEFAULT": "#2b4075",
-      "light": "#4a6199"
+      "dark": "#2B5A9B",
+      "DEFAULT": "#3878C7",
+      "light": "#5A94D4"
     },
     "accent": {
       "DEFAULT": "#c4a242",

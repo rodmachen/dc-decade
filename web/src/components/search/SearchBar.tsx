@@ -6,15 +6,29 @@ interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  inputId?: string;
+  label?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder = "Search..." }: SearchBarProps) {
+export function SearchBar({
+  value,
+  onChange,
+  placeholder = "Search...",
+  inputId = "search-input",
+  label,
+}: SearchBarProps) {
   const [local, setLocal] = useState(value);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   useEffect(() => {
     setLocal(value);
   }, [value]);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const v = e.target.value;
@@ -25,7 +39,11 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
 
   return (
     <div className="px-4 py-3">
+      <label htmlFor={inputId} className="sr-only">
+        {label || placeholder}
+      </label>
       <input
+        id={inputId}
         type="text"
         value={local}
         onChange={handleChange}

@@ -90,6 +90,19 @@ query GetIssue($id: Int!) {
       type {
         name
       }
+      credits {
+        id
+        creditType {
+          name
+        }
+        creatorNameDetail {
+          name
+          creator {
+            id
+            gcdOfficialName
+          }
+        }
+      }
     }
   }
 }

@@ -3,9 +3,12 @@
 /* DC Decade Design Tokens */
 @theme inline {
   /* Colors */
-  --color-primary-dark: #1a2847;
-  --color-primary: #2b4075;
-  --color-primary-light: #4a6199;
+  --color-primary-dark: #2B5A9B;
+  --color-primary: #3878C7;
+  --color-primary-light: #5A94D4;
+
+  /* Layout */
+  --spacing-nav: 3.5rem; /* 56px = h-14 */
   --color-accent: #c4a242;
   --color-accent-light: #d4b862;
   --color-bg: #f5f0e8;
@@ -31,6 +34,22 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+  font-size: 0.875rem;
+  text-decoration: underline;
+}
+.skip-link:focus {
+  left: 0;
 }
 
 /* Safe area for iPhone home indicator */

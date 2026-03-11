@@ -19,9 +19,9 @@ describe("SearchTabs", () => {
 
   it("has minimum touch target size", () => {
     render(<SearchTabs active="series" onChange={() => {}} />);
-    const buttons = screen.getAllByRole("button");
-    buttons.forEach((btn) => {
-      expect(btn.className).toContain("min-h-[44px]");
+    const tabs = screen.getAllByRole("tab");
+    tabs.forEach((tab) => {
+      expect(tab.className).toContain("min-h-[44px]");
     });
   });
 });

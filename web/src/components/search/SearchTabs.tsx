@@ -15,10 +15,12 @@ const tabs: { key: SearchTab; label: string }[] = [
 
 export function SearchTabs({ active, onChange }: SearchTabsProps) {
   return (
-    <div className="flex px-4 gap-1">
+    <div role="tablist" aria-label="Search type" className="flex px-4 gap-1">
       {tabs.map((tab) => (
         <button
           key={tab.key}
+          role="tab"
+          aria-selected={active === tab.key}
           onClick={() => onChange(tab.key)}
           className={`flex-1 py-2.5 text-sm font-medium rounded-lg min-h-[44px] transition-colors ${
             active === tab.key

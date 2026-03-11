@@ -3,9 +3,9 @@ import { render, screen } from "@testing-library/react";
 import { HeroSection } from "@/components/homepage/HeroSection";
 
 describe("HeroSection", () => {
-  it("renders the title", () => {
+  it("renders the banner logo", () => {
     render(<HeroSection />);
-    expect(screen.getByText("The DC Decade")).toBeInTheDocument();
+    expect(screen.getByAltText("The DC Decade")).toBeInTheDocument();
   });
 
   it("renders the subtitle", () => {

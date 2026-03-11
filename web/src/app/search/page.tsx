@@ -50,7 +50,7 @@ function SeriesResults({ query }: { query: string }) {
     skip: query.length < 2,
   });
 
-  if (query.length < 2) return <EmptyState message="Type at least 2 characters to search." />;
+  if (query.length < 2) return <EmptyState branded message="Search DC Decade" suggestion="Try searching for 'Batman' or 'Crisis'" />;
   if (loading) return <LoadingSpinner message="Searching series..." />;
   if (error) return <ErrorMessage message={error.message} />;
   if (!data?.allSeries.items.length) return <EmptyState message="No series found." />;
@@ -78,7 +78,7 @@ function CreatorResults({ query }: { query: string }) {
     skip: query.length < 2,
   });
 
-  if (query.length < 2) return <EmptyState message="Type at least 2 characters to search." />;
+  if (query.length < 2) return <EmptyState branded message="Search DC Decade" suggestion="Try searching for a creator's name" />;
   if (loading) return <LoadingSpinner message="Searching creators..." />;
   if (error) return <ErrorMessage message={error.message} />;
   if (!data?.creators.items.length) return <EmptyState message="No creators found." />;
