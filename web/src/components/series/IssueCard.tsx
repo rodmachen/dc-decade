@@ -26,6 +26,7 @@ export function IssueCard({ id, number: issueNumber, title, seriesName, coverIma
           className="object-cover"
           sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, 20vw"
           loading="lazy"
+          unoptimized
         />
       </div>
       <p className="mt-1 text-xs font-medium text-text-primary text-center">#{issueNumber}</p>

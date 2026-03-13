@@ -19,6 +19,7 @@ export function CoverImage({ coverImageUrl, alt }: CoverImageProps) {
           className="object-cover"
           sizes="(max-width: 768px) 256px, 256px"
           priority
+          unoptimized
         />
       </div>
     </div>

@@ -33,6 +33,7 @@ export function SeriesCard({
           className="object-cover"
           sizes="176px"
           loading="lazy"
+          unoptimized
         />
       </div>
       <h3 className="mt-2 text-sm font-medium text-text-primary leading-tight line-clamp-2">
