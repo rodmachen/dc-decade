@@ -5,7 +5,7 @@ import { graphql, HttpResponse } from "msw";
 import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from "@apollo/client";
 import SearchPage from "@/app/search/page";
 
-const API_URL = "https://comics-n-stuff-gql-production.up.railway.app/graphql";
+const API_URL = "https://api.dcdecade.com/graphql";
 
 const handlers = [
   graphql.query("SearchSeries", () => {

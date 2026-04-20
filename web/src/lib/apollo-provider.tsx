@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 const API_URL =
   process.env.NEXT_PUBLIC_GRAPHQL_URL ||
-  "https://comics-n-stuff-gql-production.up.railway.app/graphql";
+  "https://api.dcdecade.com/graphql";
 
 function makeClient() {
   return new ApolloClient({
