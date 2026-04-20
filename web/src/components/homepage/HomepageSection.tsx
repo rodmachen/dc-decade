@@ -6,21 +6,21 @@ import type { ApolloQueryResult } from "@apollo/client";
 interface HomepageSectionProps {
   title: string;
   subtitle: string;
-  seriesIds: number[];
+  seriesSlugs: string[];
 }
 
 export async function HomepageSection({
   title,
   subtitle,
-  seriesIds,
+  seriesSlugs,
 }: HomepageSectionProps) {
   const client = getClient();
 
   const results = await Promise.allSettled(
-    seriesIds.map((id) =>
+    seriesSlugs.map((slug) =>
       client.query<GetSeriesWithCoverQuery>({
         query: GetSeriesWithCoverDocument,
-        variables: { id },
+        variables: { slug },
       })
     )
   );
@@ -28,9 +28,9 @@ export async function HomepageSection({
   const seriesList = results
     .filter(
       (r): r is PromiseFulfilledResult<ApolloQueryResult<GetSeriesWithCoverQuery>> =>
-        r.status === "fulfilled" && r.value.data?.series != null
+        r.status === "fulfilled" && r.value.data?.seriesBySlug != null
     )
-    .map((r) => r.value.data.series!);
+    .map((r) => r.value.data.seriesBySlug!);
 
   if (seriesList.length === 0) return null;
 

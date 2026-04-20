@@ -1,7 +1,8 @@
-query GetSeriesWithCover($id: Int!) {
-  series(id: $id) {
+query GetSeriesWithCover($slug: String!) {
+  seriesBySlug(slug: $slug) {
     id
     name
+    slug
     yearBegan
     yearEnded
     issueCount

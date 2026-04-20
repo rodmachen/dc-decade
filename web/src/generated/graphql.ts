@@ -150,6 +150,7 @@ export type Query = {
   publishers: PublisherConnection;
   searchIssues: IssueConnection;
   series?: Maybe<Series>;
+  seriesBySlug?: Maybe<Series>;
   seriesPublicationTypes: Array<SeriesPublicationType>;
   stories: StoryConnection;
   story?: Maybe<Story>;
@@ -217,6 +218,11 @@ export type QuerySeriesArgs = {
 };
 
 
+export type QuerySeriesBySlugArgs = {
+  slug: Scalars['String']['input'];
+};
+
+
 export type QueryStoriesArgs = {
   issueId?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -244,6 +250,7 @@ export type Series = {
   publicationType?: Maybe<SeriesPublicationType>;
   publisher: Publisher;
   publishingFormat: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
   sortName: Scalars['String']['output'];
   yearBegan: Scalars['Int']['output'];
   yearEnded?: Maybe<Scalars['Int']['output']>;
@@ -335,11 +342,11 @@ export type GetCreatorQueryVariables = Exact<{
 export type GetCreatorQuery = { __typename?: 'Query', creator?: { __typename?: 'Creator', id: number, gcdOfficialName: string, sortName: string, birthCity: string, birthProvince: string, deathCity: string, deathProvince: string, bio: string, notes: string, disambiguation: string, birthCountry?: { __typename?: 'Country', id: number, name: string } | null, deathCountry?: { __typename?: 'Country', id: number, name: string } | null, nameDetails: Array<{ __typename?: 'CreatorNameDetail', id: number, name: string, isOfficialName: boolean, familyName: string, givenName: string }> } | null };
 
 export type GetSeriesWithCoverQueryVariables = Exact<{
-  id: Scalars['Int']['input'];
+  slug: Scalars['String']['input'];
 }>;
 
 
-export type GetSeriesWithCoverQuery = { __typename?: 'Query', series?: { __typename?: 'Series', id: number, name: string, yearBegan: number, yearEnded?: number | null, issueCount: number, publisher: { __typename?: 'Publisher', id: number, name: string }, issues: Array<{ __typename?: 'Issue', id: number, coverImageUrl?: string | null }> } | null };
+export type GetSeriesWithCoverQuery = { __typename?: 'Query', seriesBySlug?: { __typename?: 'Series', id: number, name: string, slug: string, yearBegan: number, yearEnded?: number | null, issueCount: number, publisher: { __typename?: 'Publisher', id: number, name: string }, issues: Array<{ __typename?: 'Issue', id: number, coverImageUrl?: string | null }> } | null };
 
 export type GetIssuesQueryVariables = Exact<{
   seriesId?: InputMaybe<Scalars['Int']['input']>;
@@ -545,10 +552,11 @@ export type GetCreatorLazyQueryHookResult = ReturnType<typeof useGetCreatorLazyQ
 export type GetCreatorSuspenseQueryHookResult = ReturnType<typeof useGetCreatorSuspenseQuery>;
 export type GetCreatorQueryResult = Apollo.QueryResult<GetCreatorQuery, GetCreatorQueryVariables>;
 export const GetSeriesWithCoverDocument = gql`
-    query GetSeriesWithCover($id: Int!) {
-  series(id: $id) {
+    query GetSeriesWithCover($slug: String!) {
+  seriesBySlug(slug: $slug) {
     id
     name
+    slug
     yearBegan
     yearEnded
     issueCount
@@ -576,7 +584,7 @@ export const GetSeriesWithCoverDocument = gql`
  * @example
  * const { data, loading, error } = useGetSeriesWithCoverQuery({
  *   variables: {
- *      id: // value for 'id'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
