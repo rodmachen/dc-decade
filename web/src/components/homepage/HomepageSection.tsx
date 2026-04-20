@@ -30,6 +30,17 @@ export async function HomepageSection({
     )
   );
 
+  if (process.env.NODE_ENV === "development") {
+    results.forEach((r, i) => {
+      const slug = series[i].slug;
+      if (r.status === "rejected") {
+        console.warn(`[HomepageSection] "${title}": query failed for slug "${slug}":`, r.reason);
+      } else if (r.value.data?.seriesBySlug == null) {
+        console.warn(`[HomepageSection] "${title}": null response for slug "${slug}"`);
+      }
+    });
+  }
+
   const seriesList = results
     .filter(
       (r): r is PromiseFulfilledResult<ApolloQueryResult<GetSeriesWithCoverQuery>> =>

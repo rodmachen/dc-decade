@@ -2,13 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main, feature/**]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
+
+    env:
+      NEXT_PUBLIC_GRAPHQL_URL: https://api.dcdecade.com/graphql
 
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +28,8 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Lint
+        run: npm run lint --workspace=web
+
       - name: Build
         run: npm run build
-        env:
-          NEXT_PUBLIC_GRAPHQL_URL: https://api.dcdecade.com/graphql
