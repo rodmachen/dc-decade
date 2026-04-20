@@ -343,6 +343,7 @@ export type GetCreatorQuery = { __typename?: 'Query', creator?: { __typename?: '
 
 export type GetSeriesWithCoverQueryVariables = Exact<{
   slug: Scalars['String']['input'];
+  offset?: InputMaybe<Scalars['Int']['input']>;
 }>;
 
 
@@ -552,7 +553,7 @@ export type GetCreatorLazyQueryHookResult = ReturnType<typeof useGetCreatorLazyQ
 export type GetCreatorSuspenseQueryHookResult = ReturnType<typeof useGetCreatorSuspenseQuery>;
 export type GetCreatorQueryResult = Apollo.QueryResult<GetCreatorQuery, GetCreatorQueryVariables>;
 export const GetSeriesWithCoverDocument = gql`
-    query GetSeriesWithCover($slug: String!) {
+    query GetSeriesWithCover($slug: String!, $offset: Int = 0) {
   seriesBySlug(slug: $slug) {
     id
     name
@@ -564,7 +565,7 @@ export const GetSeriesWithCoverDocument = gql`
       id
       name
     }
-    issues(limit: 1) {
+    issues(limit: 5, offset: $offset) {
       id
       coverImageUrl
     }
@@ -585,6 +586,7 @@ export const GetSeriesWithCoverDocument = gql`
  * const { data, loading, error } = useGetSeriesWithCoverQuery({
  *   variables: {
  *      slug: // value for 'slug'
+ *      offset: // value for 'offset'
  *   },
  * });
  */

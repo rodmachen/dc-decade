@@ -1,4 +1,4 @@
-query GetSeriesWithCover($slug: String!) {
+query GetSeriesWithCover($slug: String!, $offset: Int = 0) {
   seriesBySlug(slug: $slug) {
     id
     name
@@ -10,7 +10,7 @@ query GetSeriesWithCover($slug: String!) {
       id
       name
     }
-    issues(limit: 1) {
+    issues(limit: 5, offset: $offset) {
       id
       coverImageUrl
     }

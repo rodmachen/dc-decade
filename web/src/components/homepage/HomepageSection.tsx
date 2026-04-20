@@ -3,24 +3,29 @@ import { GetSeriesWithCoverDocument, type GetSeriesWithCoverQuery } from "@/gene
 import { SeriesCard } from "./SeriesCard";
 import type { ApolloQueryResult } from "@apollo/client";
 
+interface SeriesEntry {
+  slug: string;
+  issueOffset?: number;
+}
+
 interface HomepageSectionProps {
   title: string;
   subtitle: string;
-  seriesSlugs: string[];
+  series: SeriesEntry[];
 }
 
 export async function HomepageSection({
   title,
   subtitle,
-  seriesSlugs,
+  series,
 }: HomepageSectionProps) {
   const client = getClient();
 
   const results = await Promise.allSettled(
-    seriesSlugs.map((slug) =>
+    series.map(({ slug, issueOffset = 0 }) =>
       client.query<GetSeriesWithCoverQuery>({
         query: GetSeriesWithCoverDocument,
-        variables: { slug },
+        variables: { slug, offset: issueOffset },
       })
     )
   );
@@ -48,7 +53,7 @@ export async function HomepageSection({
             name={series.name}
             yearBegan={series.yearBegan}
             yearEnded={series.yearEnded}
-            coverImageUrl={series.issues?.[0]?.coverImageUrl}
+            coverImageUrl={series.issues?.find((i) => i.coverImageUrl)?.coverImageUrl}
           />
         ))}
       </div>

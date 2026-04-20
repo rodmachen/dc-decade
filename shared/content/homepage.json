@@ -3,75 +3,159 @@
     {
       "title": "Crisis on Infinite Earths",
       "subtitle": "The event that changed everything (1985-1986)",
-      "seriesSlugs": [
-        "crisis-on-infinite-earths-1985",
-        "action-comics-1938",
-        "batman-1940",
-        "detective-comics-1937",
-        "superman-1939",
-        "wonder-woman-1942",
-        "the-flash-1959",
-        "green-lantern-1960",
-        "legion-of-super-heroes-1984",
-        "infinity-inc-1984",
-        "all-star-squadron-1981"
+      "series": [
+        {
+          "slug": "crisis-on-infinite-earths-1985"
+        },
+        {
+          "slug": "action-comics-1938",
+          "issueOffset": 550
+        },
+        {
+          "slug": "batman-1940",
+          "issueOffset": 350
+        },
+        {
+          "slug": "detective-comics-1937",
+          "issueOffset": 500
+        },
+        {
+          "slug": "superman-1939",
+          "issueOffset": 350
+        },
+        {
+          "slug": "wonder-woman-1942",
+          "issueOffset": 300
+        },
+        {
+          "slug": "the-flash-1959",
+          "issueOffset": 236
+        },
+        {
+          "slug": "green-lantern-1960",
+          "issueOffset": 195
+        },
+        {
+          "slug": "legion-of-super-heroes-1984"
+        },
+        {
+          "slug": "infinity-inc-1984"
+        },
+        {
+          "slug": "all-star-squadron-1981"
+        }
       ]
     },
     {
       "title": "The Dark Knight Era",
       "subtitle": "Grim, gritty, and groundbreaking (1986-1989)",
-      "seriesSlugs": [
-        "batman-the-dark-knight-returns-1986-3141",
-        "watchmen-1986",
-        "batman-year-one-1988-14212",
-        "batman-the-killing-joke-1988",
-        "cosmic-odyssey-1988",
-        "v-for-vendetta-1988",
-        "green-arrow-the-longbow-hunters-1987",
-        "green-arrow-1988"
+      "series": [
+        {
+          "slug": "batman-the-dark-knight-returns-1986-3141"
+        },
+        {
+          "slug": "watchmen-1986"
+        },
+        {
+          "slug": "batman-year-one-1988-14212"
+        },
+        {
+          "slug": "batman-the-killing-joke-1988"
+        },
+        {
+          "slug": "cosmic-odyssey-1988"
+        },
+        {
+          "slug": "v-for-vendetta-1988"
+        },
+        {
+          "slug": "green-arrow-the-longbow-hunters-1987"
+        },
+        {
+          "slug": "green-arrow-1988"
+        }
       ]
     },
     {
       "title": "New Teen Titans",
       "subtitle": "Wolfman & Perez redefine a generation",
-      "seriesSlugs": [
-        "the-new-teen-titans-1980",
-        "the-new-teen-titans-1984",
-        "tales-of-the-teen-titans-1984"
+      "series": [
+        {
+          "slug": "the-new-teen-titans-1980"
+        },
+        {
+          "slug": "the-new-teen-titans-1984"
+        },
+        {
+          "slug": "tales-of-the-teen-titans-1984"
+        }
       ]
     },
     {
       "title": "Justice League International",
       "subtitle": "Giffen, DeMatteis & Maguire bring the laughs",
-      "seriesSlugs": [
-        "justice-league-1987",
-        "justice-league-international-1987",
-        "booster-gold-1986",
-        "blue-beetle-1986",
-        "mister-miracle-1989",
-        "legends-1986"
+      "series": [
+        {
+          "slug": "justice-league-1987"
+        },
+        {
+          "slug": "justice-league-international-1987"
+        },
+        {
+          "slug": "booster-gold-1986"
+        },
+        {
+          "slug": "blue-beetle-1986"
+        },
+        {
+          "slug": "mister-miracle-1989"
+        },
+        {
+          "slug": "legends-1986"
+        }
       ]
     },
     {
       "title": "Superman Reborn",
       "subtitle": "Byrne's Man of Steel and a new beginning",
-      "seriesSlugs": [
-        "the-man-of-steel-1986",
-        "superman-1987",
-        "action-comics-1938",
-        "secret-origins-1986"
+      "series": [
+        {
+          "slug": "the-man-of-steel-1986"
+        },
+        {
+          "slug": "superman-1987"
+        },
+        {
+          "slug": "action-comics-1938",
+          "issueOffset": 550
+        },
+        {
+          "slug": "secret-origins-1986"
+        }
       ]
     },
     {
       "title": "Vertigo Precursors",
       "subtitle": "The seeds of DC's mature readers line",
-      "seriesSlugs": [
-        "swamp-thing-1985",
-        "sandman-1989",
-        "hellblazer-1988",
-        "animal-man-1988",
-        "doom-patrol-1987",
-        "suicide-squad-1987"
+      "series": [
+        {
+          "slug": "swamp-thing-1985"
+        },
+        {
+          "slug": "sandman-1989"
+        },
+        {
+          "slug": "hellblazer-1988"
+        },
+        {
+          "slug": "animal-man-1988"
+        },
+        {
+          "slug": "doom-patrol-1987"
+        },
+        {
+          "slug": "suicide-squad-1987"
+        }
       ]
     }
   ]

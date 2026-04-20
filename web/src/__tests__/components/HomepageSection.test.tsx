@@ -32,7 +32,7 @@ function makeSeriesData(
 describe("HomepageSection", () => {
   beforeEach(() => {
     const mockClient = {
-      query: vi.fn().mockImplementation(({ variables }: { variables: { slug: string } }) => {
+      query: vi.fn().mockImplementation(({ variables }: { variables: { slug: string; offset?: number } }) => {
         const { slug } = variables;
         if (slug === "crisis-on-infinite-earths-1985") {
           return Promise.resolve({ data: makeSeriesData(slug, 2973, "Crisis on Infinite Earths") });
@@ -50,7 +50,7 @@ describe("HomepageSection", () => {
     const element = await HomepageSection({
       title: "The Dark Knight Era",
       subtitle: "Grim, gritty, and groundbreaking",
-      seriesSlugs: ["crisis-on-infinite-earths-1985", "watchmen-1986"],
+      series: [{ slug: "crisis-on-infinite-earths-1985" }, { slug: "watchmen-1986" }],
     });
     render(element!);
     expect(screen.getByText("The Dark Knight Era")).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe("HomepageSection", () => {
     const element = await HomepageSection({
       title: "Test Section",
       subtitle: "Test subtitle",
-      seriesSlugs: ["crisis-on-infinite-earths-1985", "watchmen-1986"],
+      series: [{ slug: "crisis-on-infinite-earths-1985" }, { slug: "watchmen-1986" }],
     });
     render(element!);
     expect(screen.getByText("Crisis on Infinite Earths")).toBeInTheDocument();
@@ -72,7 +72,7 @@ describe("HomepageSection", () => {
     const element = await HomepageSection({
       title: "Test Section",
       subtitle: "Test subtitle",
-      seriesSlugs: ["nonexistent-slug"],
+      series: [{ slug: "nonexistent-slug" }],
     });
     expect(element).toBeNull();
   });
@@ -81,7 +81,7 @@ describe("HomepageSection", () => {
     const element = await HomepageSection({
       title: "Test Section",
       subtitle: "Test subtitle",
-      seriesSlugs: ["crisis-on-infinite-earths-1985", "nonexistent-slug"],
+      series: [{ slug: "crisis-on-infinite-earths-1985" }, { slug: "nonexistent-slug" }],
     });
     render(element!);
     expect(screen.getByText("Crisis on Infinite Earths")).toBeInTheDocument();
@@ -90,7 +90,7 @@ describe("HomepageSection", () => {
 
   it("renders only resolved series when a query rejects", async () => {
     vi.mocked(getClient).mockReturnValue({
-      query: vi.fn().mockImplementation(({ variables }: { variables: { slug: string } }) => {
+      query: vi.fn().mockImplementation(({ variables }: { variables: { slug: string; offset?: number } }) => {
         if (variables.slug === "watchmen-1986") return Promise.reject(new Error("Network error"));
         return Promise.resolve({ data: makeSeriesData(variables.slug, 2973, "Crisis on Infinite Earths") });
       }),
@@ -99,7 +99,7 @@ describe("HomepageSection", () => {
     const element = await HomepageSection({
       title: "Test Section",
       subtitle: "Test subtitle",
-      seriesSlugs: ["crisis-on-infinite-earths-1985", "watchmen-1986"],
+      series: [{ slug: "crisis-on-infinite-earths-1985" }, { slug: "watchmen-1986" }],
     });
     render(element!);
     expect(screen.getByText("Crisis on Infinite Earths")).toBeInTheDocument();
