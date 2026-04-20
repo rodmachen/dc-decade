@@ -48,7 +48,7 @@ Returns the series with populated Cloudinary cover URLs. Slug scheme is usually 
 
 ---
 
-## Step 0 — Branch, PR bootstrap, pre-flight checks
+## Step 0 — Branch, PR bootstrap, pre-flight checks ✅
 
 Rename this plan file to the agreed name, create the feature branch, confirm infrastructure is in place, confirm the live API still serves what this plan assumes, and open the PR with the plan file as the first commit.
 
@@ -71,7 +71,7 @@ Rename this plan file to the agreed name, create the feature branch, confirm inf
   - Local env already carries the target URL: `web/.env.local` contains `NEXT_PUBLIC_GRAPHQL_URL=https://api.dcdecade.com/graphql`.
   - Plan file renamed; commit message references Step 0; PR opened (non-draft) against `main` with the plan file as the only change.
 
-## Step 1 — Schema, operation, codegen
+## Step 1 — Schema, operation, codegen ✅
 
 Update `shared/schema.graphql` to add `slug: String!` on `Series` and `seriesBySlug(slug: String!): Series` on `Query`. Rewrite `shared/operations/homepage.graphql` so `GetSeriesWithCover` takes `$slug: String!` and selects `seriesBySlug(slug: $slug)`; add `slug` to the returned Series selection set. Run `npm run codegen` and commit the regenerated `web/src/generated/graphql.ts`.
 
@@ -86,7 +86,7 @@ Update `shared/schema.graphql` to add `slug: String!` on `Series` and `seriesByS
   - `grep "slug: Scalars\\['String'\\]\\['output'\\]" web/src/generated/graphql.ts` shows `slug` on the Series type.
   - `npm run build` exits 0 (the app still uses the old prop shape here; build should pass because `GetSeriesWithCoverDocument` still compiles even though its variables changed).
 
-## Step 2 — Homepage content and component
+## Step 2 — Homepage content and component ✅
 
 Rewrite every section in `shared/content/homepage.yaml` to use `seriesSlugs: [string]` instead of `seriesIds: [int]`. Source slugs from the live API — do not derive them locally. Recompile `homepage.json` with `npx tsx shared/scripts/compile-homepage.ts`. Update `HomepageSection.tsx`: rename the prop, pass `{ slug }` as the query variable, and pull the series off `data.seriesBySlug` instead of `data.series`.
 
@@ -101,7 +101,7 @@ Rewrite every section in `shared/content/homepage.yaml` to use `seriesSlugs: [st
   - `npm run build` exits 0.
   - `npm run dev`, load `http://localhost:3000`: every section renders a row of covers with real Cloudinary images, no placeholders.
 
-## Step 3 — Apollo client URL and test constant
+## Step 3 — Apollo client URL and test constant ✅
 
 In `web/src/lib/apollo-client.ts` and `web/src/lib/apollo-provider.tsx`, replace the Railway URL in the `||` fallback with `https://api.dcdecade.com/graphql`. In `web/src/__tests__/integration/search.test.tsx`, update the `API_URL` constant to match so the MSW handler intercepts the same URL the client emits.
 
