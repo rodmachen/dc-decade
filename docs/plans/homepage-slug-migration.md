@@ -115,7 +115,7 @@ In `web/src/lib/apollo-client.ts` and `web/src/lib/apollo-provider.tsx`, replace
   - `npm run dev`, browse `/search`, open DevTools Network — POSTs go to `api.dcdecade.com`, not railway.
   - `grep -R "railway.app" web/ shared/` returns nothing.
 
-## Step 4 — Vercel env var and redeploy
+## Step 4 — Vercel env var and redeploy ✅
 
 Confirm `NEXT_PUBLIC_GRAPHQL_URL=https://api.dcdecade.com/graphql` is set in the Vercel project for Production (and Preview, for consistency). Trigger a redeploy after the PR merges so the stale ISR cache rolls over.
 
