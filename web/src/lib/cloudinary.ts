@@ -1,6 +1,6 @@
 import { tokens } from "../../../shared/design-tokens/tokens";
 
-const { cloud, ...transforms } = tokens.cloudinary;
+const { cloud: _cloud, ...transforms } = tokens.cloudinary;
 
 type TransformKey = keyof typeof transforms;
 

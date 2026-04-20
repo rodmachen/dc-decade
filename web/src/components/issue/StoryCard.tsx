@@ -25,7 +25,7 @@ function typeBadge(typeName: string) {
   return TYPE_LABELS[typeName.toLowerCase()] ?? typeName;
 }
 
-export function StoryCard({ title, feature, typeName, sequenceNumber, credits = [] }: StoryCardProps) {
+export function StoryCard({ title, feature, typeName, credits = [] }: StoryCardProps) {
   const displayTitle = title || feature || "Untitled";
   const badge = typeBadge(typeName);
 
