@@ -11,7 +11,7 @@ export default function HomePage() {
           key={section.title}
           title={section.title}
           subtitle={section.subtitle}
-          seriesIds={section.seriesIds}
+          series={section.series}
         />
       ))}
     </div>

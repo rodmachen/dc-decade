@@ -19,7 +19,7 @@ A monorepo for DC Comics 1980s client apps, starting with a mobile-first web app
 Homepage, series detail, issue detail, creator detail are all Server Components using `getClient()`. Only the search page uses Client Components for interactive debounced queries.
 
 ### Data source
-Production GraphQL API: `https://comics-n-stuff-gql-production.up.railway.app/graphql`
+Production GraphQL API: `https://api.dcdecade.com/graphql`
 
 ### Image handling
 Cover images are stored in Cloudinary (cloud: `dke4phurv`), referenced via `coverImageUrl` on Issue. The `buildCoverUrl()` helper in `web/src/lib/cloudinary.ts` inserts Cloudinary transform strings from shared design tokens into URLs. Use `dc-placeholder.png` as fallback when `coverImageUrl` is null.

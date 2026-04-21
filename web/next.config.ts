@@ -20,7 +20,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://res.cloudinary.com",
-      "connect-src 'self' https://comics-n-stuff-gql-production.up.railway.app",
+      "connect-src 'self' https://api.dcdecade.com",
       "font-src 'self'",
       "frame-src 'none'",
     ].join("; "),

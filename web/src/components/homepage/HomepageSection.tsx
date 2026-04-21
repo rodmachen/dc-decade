@@ -3,34 +3,50 @@ import { GetSeriesWithCoverDocument, type GetSeriesWithCoverQuery } from "@/gene
 import { SeriesCard } from "./SeriesCard";
 import type { ApolloQueryResult } from "@apollo/client";
 
+interface SeriesEntry {
+  slug: string;
+  issueOffset?: number;
+}
+
 interface HomepageSectionProps {
   title: string;
   subtitle: string;
-  seriesIds: number[];
+  series: SeriesEntry[];
 }
 
 export async function HomepageSection({
   title,
   subtitle,
-  seriesIds,
+  series,
 }: HomepageSectionProps) {
   const client = getClient();
 
   const results = await Promise.allSettled(
-    seriesIds.map((id) =>
+    series.map(({ slug, issueOffset = 0 }) =>
       client.query<GetSeriesWithCoverQuery>({
         query: GetSeriesWithCoverDocument,
-        variables: { id },
+        variables: { slug, offset: issueOffset },
       })
     )
   );
 
+  if (process.env.NODE_ENV === "development") {
+    results.forEach((r, i) => {
+      const slug = series[i].slug;
+      if (r.status === "rejected") {
+        console.warn(`[HomepageSection] "${title}": query failed for slug "${slug}":`, r.reason);
+      } else if (r.value.data?.seriesBySlug == null) {
+        console.warn(`[HomepageSection] "${title}": null response for slug "${slug}"`);
+      }
+    });
+  }
+
   const seriesList = results
     .filter(
       (r): r is PromiseFulfilledResult<ApolloQueryResult<GetSeriesWithCoverQuery>> =>
-        r.status === "fulfilled" && r.value.data?.series != null
+        r.status === "fulfilled" && r.value.data?.seriesBySlug != null
     )
-    .map((r) => r.value.data.series!);
+    .map((r) => r.value.data.seriesBySlug!);
 
   if (seriesList.length === 0) return null;
 
@@ -48,7 +64,7 @@ export async function HomepageSection({
             name={series.name}
             yearBegan={series.yearBegan}
             yearEnded={series.yearEnded}
-            coverImageUrl={series.issues?.[0]?.coverImageUrl}
+            coverImageUrl={series.issues?.find((i) => i.coverImageUrl)?.coverImageUrl}
           />
         ))}
       </div>

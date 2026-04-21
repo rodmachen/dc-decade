@@ -1,7 +1,8 @@
-query GetSeriesWithCover($id: Int!) {
-  series(id: $id) {
+query GetSeriesWithCover($slug: String!, $offset: Int = 0) {
+  seriesBySlug(slug: $slug) {
     id
     name
+    slug
     yearBegan
     yearEnded
     issueCount
@@ -9,7 +10,7 @@ query GetSeriesWithCover($id: Int!) {
       id
       name
     }
-    issues(limit: 1) {
+    issues(limit: 5, offset: $offset) {
       id
       coverImageUrl
     }
